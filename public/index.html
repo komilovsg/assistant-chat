@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131314" media="(prefers-color-scheme: dark)">
+<title>Ассистент — ИИ-чат</title>
+<meta name="description" content="Бесплатный ИИ-чат: задавайте вопросы, пишите тексты и код, разбирайтесь в темах. Ответы на русском языке.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ассистент — ИИ-чат">
+<meta property="og:description" content="Бесплатный ИИ-чат: задавайте вопросы, пишите тексты и код, разбирайтесь в темах.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ассистент — ИИ-чат">
+<meta name="twitter:description" content="Бесплатный ИИ-чат: задавайте вопросы, пишите тексты и код, разбирайтесь в темах.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4285f4"/><stop offset=".55" stop-color="#9b72cb"/><stop offset="1" stop-color="#d96570"/>
+    </linearGradient>
+    <!-- icons: Lucide, ISC -->
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar" aria-label="Чаты">
+    <div class="side-top">
+      <button class="icon-btn" id="side-close" aria-label="Свернуть меню"><svg class="icon ham" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+    </div>
+    <button class="new-chat" id="new-chat" aria-label="Новый чат"><svg class="icon"><use href="#i-plus"/></svg><span>Новый чат</span></button>
+    <div class="side-label">Недавние</div>
+    <ul class="chat-list" id="chat-list"></ul>
+    <div class="side-foot"><button type="button" class="about-link" id="about-open">О проекте</button></div>
+  </aside>
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="menu-btn" aria-label="Открыть меню" aria-controls="sidebar"><svg class="icon" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+      <span class="brand" id="brand">Ассистент</span>
+    </header>
+
+    <div class="scroll" id="scroll">
+      <section class="empty" id="empty">
+        <h1 class="greet">Привет! Чем могу помочь?</h1>
+        <p class="greet-sub">Спросите что угодно — код, тексты, идеи, учёба</p>
+      </section>
+      <div class="thread" id="thread" aria-live="polite"></div>
+    </div>
+
+    <div class="composer-wrap">
+      <form class="composer" id="form" autocomplete="off">
+        <textarea id="input" rows="1" placeholder="Спросите что угодно" aria-label="Сообщение"></textarea>
+        <div class="comp-row">
+          <div class="picker">
+            <button type="button" class="pick-btn" id="pick-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Выбор модели"><span id="pick-label">Авто</span><svg class="icon"><use href="#i-chev"/></svg></button>
+            <ul class="menu" id="menu" role="listbox" aria-label="Модель" hidden></ul>
+          </div>
+          <span class="spacer"></span>
+          <span class="counter" id="counter"></span>
+          <button type="button" class="icon-btn mic" id="mic" aria-label="Голосовой ввод" hidden><svg class="icon"><use href="#i-mic"/></svg></button>
+          <button type="submit" class="send" id="send" aria-label="Отправить" disabled><svg class="icon arrow" id="send-arrow"><use href="#i-up"/></svg><span class="sq"></span><span class="cd" id="send-cd" hidden></span></button>
+        </div>
+      </form>
+    </div>
+    <div class="foot">ИИ может ошибаться. Проверяйте важную информацию.</div>
+  </div>
+</div>
+
+<div class="modal" id="about" hidden>
+  <div class="modal-backdrop" id="about-bd"></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <h2 id="about-title">О проекте</h2>
+    <p>Это бесплатный ИИ-чат: задавайте вопросы, просите написать текст или код, объяснить тему.</p>
+    <ul>
+      <li>Ответы генерирует искусственный интеллект и могут содержать ошибки — важное проверяйте.</li>
+      <li>Не вводите персональные и конфиденциальные данные: пароли, номера карт, документы.</li>
+      <li>Разговоры не хранятся на сервере: история лежит только в вашем браузере и пропадёт, если очистить данные сайта.</li>
+      <li>Действуют дневные лимиты на количество запросов, чтобы сервис оставался доступным всем.</li>
+    </ul>
+    <button type="button" class="modal-close" id="about-close">Понятно</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

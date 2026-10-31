@@ -1,0 +1,11 @@
+{
+  "name": "Ассистент",
+  "short_name": "Ассистент",
+  "description": "Бесплатный ИИ-чат",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#131314",
+  "theme_color": "#131314",
+  "lang": "ru",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
