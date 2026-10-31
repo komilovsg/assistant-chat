@@ -14,3 +14,7 @@ node_modules/
 .DS_Store
 .vscode/
 .idea/
+
+# build outputs (npm run build)
+public/app.js
+public/widget.js

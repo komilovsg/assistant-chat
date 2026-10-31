@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+  <title id="t">assistant-chat architecture</title>
+  <desc id="d">A browser, running either the full-page chat or the embedded widget, calls GET /api/config and POST /api/chat on a Cloudflare Worker. The Worker checks CORS, applies rate limits, counts in KV, falls back across five Gemini models and normalizes the stream, then calls the Gemini Interactions API with the secret key. The reply streams back as server-sent events.</desc>
+  <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f8cff"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1200" height="620" rx="24" fill="#0b0b12"/>
+  <rect x="1" y="1" width="1198" height="618" rx="23" fill="none" stroke="#22222e" stroke-width="2"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" fill="#8b8b98" font-size="18" font-weight="600" letter-spacing="2">
+    <text x="48" y="64">BROWSER</text><text x="440" y="64">YOUR WORKER</text><text x="936" y="64">GOOGLE</text>
+  </g>
+
+  <g id="browser">
+    <rect x="48" y="96" width="290" height="170" rx="20" fill="#16161f" stroke="#2a2a38" stroke-width="2"/>
+    <text x="72" y="144" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">Full-page chat</text>
+    <text x="72" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#a99cff">GET /</text>
+    <text x="72" y="222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">chat history stays</text>
+    <text x="72" y="248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">in the browser</text>
+
+    <rect x="48" y="326" width="290" height="170" rx="20" fill="#16161f" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="72" y="374" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">Widget</text>
+    <text x="72" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#a99cff">widget.js</text>
+    <text x="72" y="452" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">on any website,</text>
+    <text x="72" y="478" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">inside Shadow DOM</text>
+  </g>
+
+  <g id="worker">
+    <rect x="440" y="96" width="430" height="450" rx="24" fill="#16161f" stroke="url(#ag)" stroke-width="2"/>
+    <text x="472" y="144" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">Cloudflare Worker</text>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#a99cff">
+      <text x="472" y="186">GET  /api/config</text>
+      <text x="472" y="218">POST /api/chat</text>
+    </g>
+    <line x1="472" y1="238" x2="838" y2="238" stroke="#2a2a38" stroke-width="2"/>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#f5f5f7">
+      <g transform="translate(472 262)"><circle cx="12" cy="12" r="12" fill="#6c5ce7"/><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">1</text><text x="38" y="19">CORS origin allowlist</text></g>
+      <g transform="translate(472 306)"><circle cx="12" cy="12" r="12" fill="#6c5ce7"/><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">2</text><text x="38" y="19">Per-IP burst limit</text></g>
+      <g transform="translate(472 350)"><circle cx="12" cy="12" r="12" fill="#6c5ce7"/><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">3</text><text x="38" y="19">KV daily counters, IP + global</text></g>
+      <g transform="translate(472 394)"><circle cx="12" cy="12" r="12" fill="#6c5ce7"/><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">4</text><text x="38" y="19">Fallback across 5 models</text></g>
+      <g transform="translate(472 438)"><circle cx="12" cy="12" r="12" fill="#6c5ce7"/><text x="12" y="19" text-anchor="middle" font-size="18" font-weight="700">5</text><text x="38" y="19">Normalize the SSE stream</text></g>
+    </g>
+    <rect x="472" y="480" width="366" height="40" rx="20" fill="#0b0b12" stroke="#2a2a38" stroke-width="2"/>
+    <text x="655" y="507" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#9be39b">GEMINI_API_KEY stays here</text>
+  </g>
+
+  <g id="gemini">
+    <rect x="936" y="216" width="216" height="210" rx="20" fill="#16161f" stroke="#2a2a38" stroke-width="2"/>
+    <g transform="translate(960 238) scale(1.5)" fill="none" stroke="url(#ag)" stroke-width="1.6" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></g>
+    <text x="960" y="314" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="700" fill="#f5f5f7">Gemini</text>
+    <text x="960" y="350" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">Interactions</text>
+    <text x="960" y="376" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">API, streaming</text>
+    <text x="960" y="408" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">free-tier models</text>
+  </g>
+
+  <g fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round">
+    <path d="M338 160 H430" marker-end="url(#ah)"/>
+    <path d="M338 410 H430" marker-end="url(#ah)"/>
+    <path d="M870 290 H926" marker-end="url(#ah)"/>
+    <path d="M926 350 H870" marker-end="url(#ap)" stroke="#ec4899"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">
+    <path d="M48 582 H92" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text x="108" y="589">JSON request</text>
+    <path d="M344 582 H300" stroke="#ec4899" stroke-width="2" stroke-linecap="round" marker-end="url(#ap)"/>
+    <text x="360" y="589">answer streams back as server-sent events</text>
+  </g>
+</svg>

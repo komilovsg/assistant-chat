@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
+  <title id="t">assistant-chat</title>
+  <desc id="d">The one-line script tag for widget.js flows into a round sparkle launcher button and an open chat panel. Deploy a Gemini-powered chat to Cloudflare Workers in minutes, then drop it into any website with one script tag.</desc>
+  <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f8cff"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.6" r="0.6"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".16"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="470" rx="24" fill="#0b0b12"/>
+  <rect width="1200" height="470" rx="24" fill="url(#glow)"/>
+  <rect x="1" y="1" width="1198" height="468" rx="23" fill="none" stroke="#22222e" stroke-width="2"/>
+
+  <g id="title-block" transform="translate(64 0)">
+    <text x="0" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2" fill="#8b8b98">CLOUDFLARE WORKERS  ·  GEMINI  ·  OPEN SOURCE</text>
+    <text x="-3" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.5" fill="#f5f5f7">assistant-<tspan fill="url(#ag)">chat</tspan></text>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="28" fill="#f5f5f7" font-weight="500">
+      <text x="0" y="254">Deploy a Gemini-powered chat to</text>
+      <text x="0" y="294">Cloudflare Workers in minutes, then</text>
+      <text x="0" y="334">drop it into any website with one</text>
+      <text x="0" y="374"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#a99cff">&lt;script&gt;</tspan> tag.</text>
+    </g>
+    <text x="0" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#8b8b98">MIT  ·  ~55 KB gzip  ·  no frontend framework</text>
+  </g>
+
+  <g id="snippet" transform="translate(640 48)">
+    <rect width="496" height="134" rx="20" fill="#16161f" stroke="#2a2a38" stroke-width="2"/>
+    <circle cx="28" cy="26" r="5" fill="#3a3a4a"/><circle cx="46" cy="26" r="5" fill="#3a3a4a"/><circle cx="64" cy="26" r="5" fill="#3a3a4a"/>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#f5f5f7">
+      <text x="28" y="66"><tspan fill="#ec7fb5">&lt;script</tspan> <tspan fill="#7fb0ff">async</tspan></text>
+      <text x="52" y="94"><tspan fill="#7fb0ff">src</tspan>=<tspan fill="#9be39b">"https://YOUR-WORKER/widget.js"</tspan></text>
+      <text x="28" y="122"><tspan fill="#ec7fb5">&gt;&lt;/script&gt;</tspan></text>
+    </g>
+  </g>
+
+  <path d="M668 182 V262" fill="none" stroke="url(#ag)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+  <path d="M660 254 l8 10 l8 -10" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g id="launcher" transform="translate(668 328)">
+    <circle r="40" fill="#6c5ce7"/>
+    <g transform="translate(-20 -20) scale(1.667)" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+    </g>
+    <circle cx="28" cy="-28" r="9" fill="#4ade80" stroke="#0b0b12" stroke-width="3"/>
+  </g>
+
+  <path d="M716 328 H752" fill="none" stroke="url(#ag)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+  <path d="M744 320 l10 8 l-10 8" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g id="panel" transform="translate(768 214)">
+    <rect width="368" height="224" rx="20" fill="#fff"/>
+    <path d="M0 20a20 20 0 0 1 20-20h328a20 20 0 0 1 20 20v28H0z" fill="#6c5ce7"/>
+    <circle cx="32" cy="24" r="14" fill="#fff" fill-opacity=".22"/>
+    <g transform="translate(22 14) scale(.833)" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></g>
+    <text x="58" y="31" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#fff">Assistant</text>
+    <rect x="72" y="62" width="280" height="40" rx="20" fill="#6c5ce7"/>
+    <text x="92" y="89" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#fff">Write a debounce in TS</text>
+    <rect x="16" y="112" width="304" height="40" rx="20" fill="#f1f1f7"/>
+    <text x="36" y="139" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#1a1a24">Here is a typed debounce.</text>
+    <rect x="16" y="168" width="336" height="44" rx="22" fill="#fff" stroke="#c9c9d6" stroke-width="2"/>
+    <text x="36" y="197" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" fill="#8b8b98">Type a message</text>
+    <circle cx="326" cy="190" r="16" fill="#6c5ce7"/>
+    <path d="M326 198 V182 M319 189 l7 -7 l7 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

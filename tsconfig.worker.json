@@ -1,0 +1,10 @@
+{
+  // Worker (server) + its unit tests. Run: tsc --noEmit -p tsconfig.worker.json
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": ["@cloudflare/workers-types"],
+    "noUncheckedIndexedAccess": true
+  },
+  "include": ["src/worker.ts", "src/server", "test"]
+}

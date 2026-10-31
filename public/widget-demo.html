@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Демо виджета — Ассистент</title>
+<meta name="description" content="Пример сайта со встроенным чат-виджетом.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/widget-demo.css">
+</head>
+<body>
+<div class="wrap">
+  <nav><b>Acme Studio</b><div><a href="#">Услуги</a><a href="#">О нас</a><a href="#">Контакты</a></div></nav>
+  <section class="hero">
+    <h1>Делаем сайты, которые работают</h1>
+    <p>Это вымышленный лендинг. Нажмите на круглую кнопку в углу экрана — откроется чат-виджет с ИИ-помощником.</p>
+    <a class="btn" href="#">Обсудить проект</a>
+  </section>
+  <section class="cards">
+    <div class="card"><h3>Дизайн</h3><p>Интерфейсы, айдентика и прототипы под вашу задачу.</p></div>
+    <div class="card"><h3>Разработка</h3><p>Быстрые сайты и веб-приложения на современном стеке.</p></div>
+    <div class="card"><h3>Поддержка</h3><p>Развиваем и сопровождаем продукт после запуска.</p></div>
+  </section>
+  <section class="note">
+    <h3>Как встроить виджет</h3>
+    <p>Вставьте перед <code>&lt;/body&gt;</code> и добавьте домен сайта в <code>ALLOWED_ORIGINS</code>:</p>
+    <p><code>&lt;script src="https://YOUR-WORKER/widget.js" async data-title="Помощник" data-accent="#6c5ce7"&gt;&lt;/script&gt;</code></p>
+  </section>
+  <footer>Демо-страница. <a href="/">Открыть полноэкранный чат →</a></footer>
+</div>
+<script src="/widget.js" async data-title="Помощник"></script>
+</body>
+</html>
