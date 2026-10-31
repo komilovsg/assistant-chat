@@ -1,0 +1,18 @@
+{
+  // Frontend (browser): src/client, src/widget, src/shared. Bundled by esbuild (build.mjs).
+  // The Worker has its own config (tsconfig.worker.json): @cloudflare/workers-types and lib DOM
+  // declare conflicting globals (e.g. Element), so they cannot share one program.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": [],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/client", "src/widget", "src/shared", "src/env.d.ts"]
+}

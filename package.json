@@ -1,0 +1,28 @@
+{
+  "name": "assistant-chat",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "description": "Open-source AI chat on Cloudflare Workers: full-page chat + embeddable widget (Gemini).",
+  "scripts": {
+    "dev": "npm run build && wrangler dev",
+    "build": "node build.mjs",
+    "build:watch": "node build.mjs --watch",
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit -p tsconfig.worker.json && tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dompurify": "3.4.17",
+    "highlight.js": "11.12.0",
+    "marked": "18.1.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261031.1",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5",
+    "wrangler": "4.156.0"
+  }
+}
